@@ -59,7 +59,7 @@ Once the experiment completed, and addition to seeing the best run with the Run 
 ![automl_exp_summary](screenshots/02_automl_experiment_summary.png)
 
 And clicking on the "Models" tab, we can look at the multiple models trained and their metrics:
-![automl_models](screenshots/automl_models.png)
+![automl_models](screenshots/03_automl_models.png)
 
 The best performing model with AutoML had an AUC_weighted metric of 0.69623
 
