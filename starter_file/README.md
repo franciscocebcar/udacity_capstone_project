@@ -65,7 +65,7 @@ The best performing model with AutoML had an AUC_weighted metric of 0.69623
 
 
 ## Hyperparameter Tuning
-For Hyperparameter tuning, we train a specify model type and do it multiple times with different hyper parameters. For this exercise I used a Scikit-Learn RandomForestClassifier for its ability to handle complex relationships between the predictors and simplicity when it comes to interpreting the results.
+For Hyperparameter tuning, we train a specific model type and do it multiple times with different hyper parameters. For this exercise I used a Scikit-Learn RandomForestClassifier for its ability to handle complex relationships between the predictors and simplicity when it comes to interpreting the results. The script that trains the RandomForestClassifier with a given set of hyperparameter values is provided in the HyperDrive configuration (train_randomforest.py)
 
 In a Random Forest Classifier, we train multiple decision trees and come up with a concensus with regards to the predictions. The number of trees (n_estimators) is a hyperparameter that was used for this HyperDrive experiment and value for each run is set to a random number between 50 and 300.
 
@@ -73,12 +73,32 @@ Another hyperparameter for Random Forests is the maximum depth the trees can rea
 
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
+After submitting the HyperDrive experiment for execution, we could see progress of the job by using the RunDetails widget:
+![hyperdrive_widget_1](screenshots/04_hyperdrive_rundetails_widget.png)
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+Each run int the screenshot above represents an execution of the train_randomforest.py script with a random values for the hyperparameters specified in the HyperDrive configuration.
+
+Once the HyperDrive experiment completes, we can obtain the run with the best metric, which in this case is a Random Forest with 247 decision trees having a max depth of 21:
+![hyperdrive_best_model](screenshots/06_hyperdrive_bestmodel_details.png)
+
+It is also very helpful to inspect the experiment in the "Child runs" section of the experiment run in the AzureML Workspace for a visual representation of the hyperparameters used and how they affected the AUC_weighted primary metric:
+![hyperdrive_experiment_details](screenshots/07_hyperdrive_experiment_details.png)
+
+In the same view, we can also see the list of runs, their parameters, primary metric and additional run details:
+![hyperdrive_experiment_runs](screenshots/08_hyperdrive_experiment_runs.png)
+
+The best performing random forest model with HyperDrive had an AUC_weighted metric of 0.63023
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+Given that the AutoML experiment yielded the best performing model, I proceeded to deploy it as a web service on an Azure Container Instance.
+
+In order to do this, a scoring script, an Azure Container instance configuration, and an environment definition had to be provided (script and environment were passed as parameters when defining an inference configuration). 
+
+After the web service is deployed, I could see it in the Endpoints section of the AzureML Workspace:
+![websvc_summary](screenshots/09_webservice_summary.png)
+
+Once Azure Application Insights is enabled (and the web service is restarts), we can validate by looking at the "Application Insights url" in the endpoint details:
+![websvc_appinsights](screenshots/10_webservice_appinsights.png)
 
 ## Screen Recording
 A screen recording explaining the source code and demonstrating the working model as a deployed web service can be accessed through the following link:
