@@ -97,7 +97,7 @@ In order to do this, a scoring script, an Azure Container instance configuration
 After the web service is deployed, I could see it in the Endpoints section of the AzureML Workspace:
 ![websvc_summary](screenshots/09_webservice_summary.png)
 
-Once Azure Application Insights is enabled (and the web service is restarts), we can validate by looking at the "Application Insights url" in the endpoint details:
+Once Azure Application Insights is enabled (and the web service is restarted), we can validate by looking at the "Application Insights url" in the endpoint details:
 ![websvc_appinsights](screenshots/10_webservice_appinsights.png)
 
 ## Screen Recording
