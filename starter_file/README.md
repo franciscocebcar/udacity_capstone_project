@@ -65,7 +65,11 @@ The best performing model with AutoML had an AUC_weighted metric of 0.69623
 
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+For Hyperparameter tuning, we train a specify model type and do it multiple times with different hyper parameters. For this exercise I used a Scikit-Learn RandomForestClassifier for its ability to handle complex relationships between the predictors and simplicity when it comes to interpreting the results.
+
+In a Random Forest Classifier, we train multiple decision trees and come up with a concensus with regards to the predictions. The number of trees (n_estimators) is a hyperparameter that was used for this HyperDrive experiment and value for each run is set to a random number between 50 and 300.
+
+Another hyperparameter for Random Forests is the maximum depth the trees can reach (max_depth) and the value for this HyperDrive experiment is set to a random number between 20 and 50.
 
 
 ### Results
