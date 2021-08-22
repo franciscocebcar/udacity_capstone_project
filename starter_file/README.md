@@ -52,9 +52,17 @@ When inspecting the tasks of the AutoML experiment, I noticed that the data is i
 
 ### Results
 
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
+When submitting the AutoML experiment for execution, I could see details as the models were being trained by using the RunDetails widget as shown in the screenshot below:
+![automl_widget](screenshots/01_automl_rundetails_widget.png)
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+Once the experiment completed, and addition to seeing the best run with the Run Details widget, I could also see it in the Experiments tab within the AzureML Workspace:
+![automl_exp_summary](screenshots/02_automl_experiment_summary.png)
+
+And clicking on the "Models" tab, we can look at the multiple models trained and their metrics:
+![automl_models](screenshots/automl_models.png)
+
+The best performing model with AutoML had an AUC_weighted metric of 0.69623
+
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
