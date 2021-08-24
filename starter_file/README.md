@@ -69,7 +69,7 @@ The best performing model with AutoML had an AUC_weighted metric of 0.6890
 As we can see, a VotingEnsemble classifier was the best performing model. We can retrieve it and take a look at the models that are part of the ensemble:
 ![model_steps](screenshots/031_fittedmodel_steps.png)
 
-We can see that it uses 4 XGBoost classifiers and 4 Support Vector Machine classifiers.
+We can see that it uses 4 XGBoost classifiers and 5 Support Vector Machine classifiers.
 
 Towards the bottom of the output, we can see the weights assigned to each of the models part of the ensemble:
 ![model_weights](screenshots/032_fittedmodel_weights.png)
