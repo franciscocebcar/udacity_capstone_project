@@ -6,6 +6,9 @@ The best model trained with AutoML and the best model trained with HyperDrive ar
 
 Once the best model is deployed, it is tested by making a web service call to predict water potability using a sample dataset.
 
+This entire process is depicted in the following diagram:
+![diagram](00_highlevel_diagram.png)
+
 
 ## Project Set Up and Installation
 To set up the project, we need to create a Compute Instance and open the Jupyter interface. In Jupyter, we need to upload the following files:
@@ -61,7 +64,18 @@ Once the experiment completed, and addition to seeing the best run with the Run 
 And clicking on the "Models" tab, we can look at the multiple models trained and their metrics:
 ![automl_models](screenshots/03_automl_models.png)
 
-The best performing model with AutoML had an AUC_weighted metric of 0.69623
+The best performing model with AutoML had an AUC_weighted metric of 0.6890
+
+As we can see, a VotingEnsemble classifier was the best performing model. We can retrieve it and take a look at the models that are part of the ensemble:
+![model_steps](031_fittedmodel_steps.png)
+
+We can see that it uses 4 XGBoost classifiers and 4 Support Vector Machine classifiers.
+
+Towards the bottom of the output, we can see the weights assigned to each of the models part of the ensemble:
+![model_weights](032_fittedmodel_weights.png)
+
+We can also see some of this information in the Experiment UI:
+![model_steps_ui](033_fittedmodel_gui.png)
 
 
 ## Hyperparameter Tuning
