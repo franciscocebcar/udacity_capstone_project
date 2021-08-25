@@ -92,7 +92,7 @@ After submitting the HyperDrive experiment for execution, we could see progress 
 
 Each run int the screenshot above represents an execution of the train_randomforest.py script with a random values for the hyperparameters specified in the HyperDrive configuration.
 
-Once the HyperDrive experiment completes, we can obtain the run with the best metric, which in this case is a Random Forest with 247 decision trees having a max depth of 21:
+Once the HyperDrive experiment completes, we can obtain the run with the best metric, which in this case is a Random Forest with 226 decision trees having a max depth of 21:
 ![hyperdrive_best_model](screenshots/06_hyperdrive_bestmodel_details.png)
 
 It is also very helpful to inspect the experiment in the "Child runs" section of the experiment run in the AzureML Workspace for a visual representation of the hyperparameters used and how they affected the AUC_weighted primary metric:
@@ -101,7 +101,7 @@ It is also very helpful to inspect the experiment in the "Child runs" section of
 In the same view, we can also see the list of runs, their parameters, primary metric and additional run details:
 ![hyperdrive_experiment_runs](screenshots/08_hyperdrive_experiment_runs.png)
 
-The best performing random forest model with HyperDrive had an AUC_weighted metric of 0.63023
+The best performing random forest model with HyperDrive had an AUC_weighted metric of 0.63267
 
 ## Model Deployment
 Given that the AutoML experiment yielded the best performing model, I proceeded to deploy it as a web service on an Azure Container Instance.
