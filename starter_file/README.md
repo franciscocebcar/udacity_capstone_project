@@ -126,7 +126,7 @@ And lastly, we can call the web service using the scoring URI and inspect the re
 ## Screen Recording
 A screen recording explaining the source code and demonstrating the working model as a deployed web service can be accessed through the following link:
 
-https://youtu.be/qQYJT813QeU
+https://youtu.be/iSkiE1srbIY
 
 
 ## Standout Suggestions
@@ -137,3 +137,9 @@ The following screenshot shows that the Application Insights was enabled on the 
 
 And after submitting a web service call to predict the potability on the sample dataset, I could see that the activity was recorded in Azure Application Insights:
 ![appinsights](screenshots/11_appinsights.png)
+
+## Future Improvements
+The following improvements come to mind as a future project:
+- Find additional features that can be relevant to predict the potability of water. We would need to engage subject matter experts to explore the options.
+- I can try to run a different kind model with HyperDrive and see if we can get better performance
+- We can attempt to use deep learning, but we would need to try to gather more data since this is a relatively small dataset with a lot of missing values.
