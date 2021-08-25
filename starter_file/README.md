@@ -107,12 +107,21 @@ The best performing random forest model with HyperDrive had an AUC_weighted metr
 Given that the AutoML experiment yielded the best performing model, I proceeded to deploy it as a web service on an Azure Container Instance.
 
 In order to do this, a scoring script, an Azure Container instance configuration, and an environment definition had to be provided (script and environment were passed as parameters when defining an inference configuration). 
+![model_deployment](screenshots/12_model_deployment.png)
 
 After the web service is deployed, I could see it in the Endpoints section of the AzureML Workspace:
 ![websvc_summary](screenshots/09_webservice_summary.png)
 
 Once Azure Application Insights is enabled (and the web service is restarted), we can validate by looking at the "Application Insights url" in the endpoint details:
 ![websvc_appinsights](screenshots/10_webservice_appinsights.png)
+
+Once we confirm that the Web Service endpoint is in a "Healthy" state, we can proceed to test our model by making a web service call to the scoring URI.
+For this test, I will prepare a JSON document containing 10 records from the original dataset:
+![test_data](screenshots/13_testdata_preparation.png)
+
+And lastly, we can call the web service using the scoring URI and inspect the result, which will contain the prediction for the 10 records:
+![webservice_call](screenshots/14_webservice_call.png)
+
 
 ## Screen Recording
 A screen recording explaining the source code and demonstrating the working model as a deployed web service can be accessed through the following link:
